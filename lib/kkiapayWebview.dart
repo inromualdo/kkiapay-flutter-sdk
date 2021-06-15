@@ -12,18 +12,18 @@ class KKiaPay extends StatefulWidget {
   final String apikey;
   final bool sandbox;
   final Function(Map<String, dynamic>, BuildContext) callback;
-  final String theme;
+  final String? theme;
   final String name;
 
   KKiaPay({
-    this.amount,
-    this.phone,
-    this.data,
-    this.sandbox,
-    this.apikey,
-    this.callback,
+    required this.amount,
+    required this.apikey,
+    required this.callback,
+    this.phone = "",
+    this.data = "",
+    this.sandbox = true,
+    this.name = "",
     this.theme,
-    this.name,
   });
 
   @override
@@ -47,7 +47,7 @@ class _KKiaPayState extends State<KKiaPay> {
   final String apikey;
   final bool sandbox;
   final Function(Map<String, dynamic>, BuildContext) callback;
-  final String theme;
+  final String? theme;
   final String name;
 
   ///
@@ -134,7 +134,7 @@ class _SdkData {
   /// @Params data : Payment data send by webhook
   /// @Params sandbox : Payment request made in sandbox
   _SdkData({
-    this.amount,
+    required this.amount,
     this.reason,
     this.name,
     this.phone,
